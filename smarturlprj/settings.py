@@ -8,12 +8,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+hm_dpos_^_@25*4wjqz5)v)adzn6i91c=@tzjgn&$s1nbr^3m'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-links.herokuapp.com', 'mysite.com', '127.0.0.1', 'localhost', '0.0.0.0']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -100,11 +100,11 @@ WSGI_APPLICATION = 'smarturlprj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8ancqvv7evftm',
-        'HOST': 'ec2-35-172-246-19.compute-1.amazonaws.com',
+        'NAME': '',
+        'HOST': '',
         'POST': 5432,
-        'USER': 'suyqzxkjsfjopb',
-        'PASSWORD': 'ef7477d384c8ebe34cfa890bbc232e65b8fa0a4238f15d31bece8de696983e28',
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 # Password validation
@@ -175,8 +175,8 @@ EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
 #EMAIL_USE_SSL = True
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'iwebpro.ru@mail.ru'
-EMAIL_HOST_PASSWORD = 'Mail4Django_prjs'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 #DEFAULT_FROM_EMAIL = 'No reply <noreply@mail.ru>'
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -196,8 +196,8 @@ AUTHENTICATION_BACKENDS = [
     #allauth
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-SOCIAL_AUTH_VK_OAUTH2_KEY = '7628028'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'k6oNkK8MccTcmyIfvLRD'
+SOCIAL_AUTH_VK_OAUTH2_KEY = ''
+SOCIAL_AUTH_VK_OAUTH2_SECRET = ''
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'photos']
 
 X_FRAME_OPTIONS = 'ALLOWALL'
