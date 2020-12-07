@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Активация{% endblock %}
+{% block content %}
+<div id="single-wrapper">
+	<form action="#" class="frm-single">
+		<div class="inside">
+			<div class="title"><strong>Django 3</strong> мультиссылки</div>
+			<!-- /.title -->
+			<div class="frm-title">Подтверждение почты</div>
+			<!-- /.frm-title -->
+			<img src="{{ MEDIA_ROOT }}/media/images/default/icon-email.png" alt="" class="ico-email">
+			<p class="text-center">Письмо было отправлено вам на почту.
+				<br>Проверьте вашу почту и перейдите по ссылке для активации учетной записи и входа.
+				<br><br> Если письмо не пришло в течении минуты, <strong>проверьте папку спам</strong>.
+			</p>
+			<!--<div class="frm-footer">taptap © 2020.</div>-->
+			<!-- /.footer -->
+		</div>
+		<!-- .inside -->
+	</form>
+	<!-- /.frm-single -->
+</div><!--/#single-wrapper -->
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="main-menu">
+	{% include 'partials/_dashboard-header.html' %}
+    {% include 'partials/_dashboard-navigation.html' %}
+</div>
+{% include 'partials/_dashboard-fixed-navbar.html' %}
+
+<div id="wrapper">
+	<div class="main-content">
+		<div class="row small-spacing">
+			<div class="col-12">
+				<div class="box-content">
+					<div class="col-md-6">
+					<h4 class="box-title text-info">Конструктор | ваша ссылка - <a href="{{ host }}/{{ user.username }}" target="_blank">{{ host }}/{{ user.username }}</a></h4>
+
+					<div class="row row-inline-block small-spacing js__sortable ui-sortable">
+						{% for block in blocks %}
+				<div class="box-content bordered info js__card">
+					<h4 class="box-title with-control">
+						{{ block.name }}
+						<span class="controls">
+							<a href="{% url 'change_block' pk=block.id %}">
+						  <button type="button" class="control fa fa-pencil" data-toggle="modal" data-target="#changeblock"></button>
+							</a>
+							<a href="{% url 'del_block' pk=block.id %}">
+							<button type="button" type="submit" class="control fa fa-times"></button>
+							</a>
+						</span>
+					</h4>
+
+					<!-- Отображение модуля -->
+                   {% if block.blockfaq.all %}
+					<div class="module">
+						<a href="{% url 'add_faq' pk=block.id %}" data-block-type="0">Модуль 'Вопрос-ответ' <i class="control fa fa-pencil"></i></a>
+					</div>
+					{% elif block.blocktablecat.all %}
+					<div class="module">
+						<a href="{% url 'add_table' pk=block.id %}" data-block-type="0">Модуль 'Таблица' <i class="control fa fa-pencil"></i></a>
+					</div>
+					{% elif block.blocklinks.all %}
+					<div class="module">
+						<a href="{% url 'add_link' pk=block.id %}" data-block-type="0">Модуль 'Ссылки' <i class="control fa fa-pencil"></i></a>
+					</div>
+					{% elif block.blockimages.all %}
+					<div class="module">
+						<a href="{% url 'add_image' pk=block.id %}" data-block-type="0">Модуль 'Изображения' <i class="control fa fa-pencil"></i></a>
+					</div>
+					{% elif block.blockvideos.all %}
+					<div class="module">
+						<a href="{% url 'add_video' pk=block.id %}" data-block-type="0">Модуль 'Видео' <i class="control fa fa-pencil"></i></a>
+					</div>
+                    {% else %}
+						<a href="{% url 'add_faq' pk=block.id %}" data-block-type="0">моудль - вопрос-ответ</a><br>
+						<a href="{% url 'add_table' pk=block.id %}" data-block-type="0">модуль - таблица цен</a><br>
+						<a href="{% url 'add_image' pk=block.id %}" data-block-type="0">модуль - картинки</a><br>
+						<a href="{% url 'add_video' pk=block.id %}" data-block-type="0">модуль - видео</a><br>
+						<a href="{% url 'add_link' pk=block.id %}" data-block-type="0">модуль - ссылки</a><br>
+					<!--<button type="button" class="btn btn-info btn-circle waves-effect waves-light" data-toggle="modal" data-target="#{{ block.name }}">
+						<i class="ico fa fa-plus"></i>
+						</button>-->
+                    {% endif %}
+
+					<!-- /.box-title -->
+					<div class="js__card_content">
+
+
+
+					</div>
+
+				</div>
+						{% endfor %}
+
+
+
+					</div>
+
+
+
+					<div class="text-center">
+						<a href="{% url 'add_block' %}">
+						<button type="button" class="btn btn-default waves-effect waves-light" >+ Добавить блок</button>
+						</a>
+					</div>
+				</div>
+					<div class="col-md-6">
+            <iframe  width = "375" height = 817" src = "{{ host }}/{{ user.username }}" frameborder="0" style="margin:30px auto;display:block;">
+		</iframe>
+			</div>
+
+				</div>
+				<!-- /.box-content -->
+			</div>
+
+
+
+		</div>
+
+		<footer class="footer">
+			<!--<ul class="list-inline">
+				<li>2020 © TapTap.</li>
+				<li><a href="#">Права</a></li>
+				<li><a href="#">Соглашение</a></li>
+				<li><a href="#">Поддержка</a></li>
+			</ul>
+			-->
+		</footer>
+	</div>
+	<!-- /.main-content -->
+</div><!--/#wrapper -->
+{% include 'partials/_dashboard-modals.html' %}
+{% endblock %}

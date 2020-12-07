@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div id="single-wrapper">
+	<form method="post" class="frm-single" novalidate>
+        {% csrf_token %}
+		<div class="inside">
+			<div class="title"><strong>Django 3</strong> мультиссылки</div>
+			<!-- /.title -->
+			<div class="frm-title">Регистрация</div>
+			{{ form|crispy }}
+			<!--
+			<div class="clearfix margin-bottom-20">
+				<div class="checkbox primary"><input type="checkbox" id="accept" required /><label for="accept">I accept Terms and Conditions</label></div>
+			</div>
+			-->
+			<!-- /.clearfix -->
+			<button type="submit" class="frm-submit">Зарегестрировать<i class="fa fa-arrow-circle-right"></i></button>
+			<div class="row small-spacing">
+				<div class="col-sm-12">
+					<div class="txt-login-with txt-center">или зарегестрируйтесь с помощью ВК</div>
+					<!-- /.txt-login-with -->
+				</div>
+				<div class="col-12"><button type="button" class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-facebook text-white waves-effect waves-light">
+					<a href="{% url "social:begin" "vk-oauth2" %}" style="color:#fff;"><i class="ico fa fa-vk"></i>vkontakte</a></button></div>
+
+
+			<!-- /.col-sm-6 -->
+			</div>
+			<!-- /.row -->
+			<a href="{% url 'login' %}" class="a-link"><i class="fa fa-sign-in"></i>Уже есть аккаунт? Войти.</a>
+			<!--<div class="frm-footer">taptap © 2020.</div>-->
+			<!-- /.footer -->
+		</div>
+		<!-- .inside -->
+	</form>
+	<!-- /.frm-single -->
+</div><!--/#single-wrapper -->
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="main-menu">
+	{% include 'partials/_dashboard-header.html' %}
+    {% include 'partials/_dashboard-navigation.html' %}
+</div>
+{% include 'partials/_dashboard-fixed-navbar.html' %}
+<div id="wrapper">
+ <div class="main-content">
+  <div class="row small-spacing">
+   <div class="col-12">
+    <div class="box-content">
+
+<form method="post">
+{% csrf_token %}
+{{ changeblockform|crispy }}
+<button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Изменить</button>
+</form>
+
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+{% endblock %}

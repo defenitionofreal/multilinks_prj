@@ -1,0 +1,140 @@
+{% extends "cardbase.html" %}
+{% load humanize %}
+{% load embed_video_tags %}
+{% block title %}Мульти{% endblock %}
+
+{% block content %}
+<!-- Blur Pic Bg -->
+<div class="blur"></div>
+
+<div class="card">
+
+    {% if owner.avatar %}
+    <div class="card_img">
+        <img src="{{ owner.avatar.url }}"/>
+    </div>
+    {% endif %}
+    {% if owner.title %}
+    <div class="card_name">
+        <h1>{{ owner.title }}</h1>
+    </div>
+    {% endif %}
+    {% if owner.description %}
+    <div class="card_desc">
+       {{ owner.description }}
+    </div>
+    {% endif %}
+    {% if owner.phone %}
+    <div class="card_button">
+        <a href="tel:{{ owner.phone }}">Позвонить</a>
+    </div>
+    {% endif %}
+
+<!-- START CREATE BLOCKS -->
+{% for blocks in blocks %}
+<!-- start links -->
+{% if blocks.blocklinks.all %}
+ <div class="self_links">
+  <span class="cardTitle {% if blocks.close == True  %}angl-down{% endif %}">{{ blocks.name }}</span>
+     <div class="infoBlock" {% if blocks.close == True  %}style="display: none;"{% endif %}>
+     <div class="g-scrolling-carousel">
+    <div class="items">
+    {% for link in blocks.blocklinks.all %}
+        {% if link.status == 2 %}
+        <a href="mailto:{{ link.url }}" target="_blank">
+        {% elif link.status == 3 %}
+        <a href="tel:{{ link.url }}" target="_blank">
+        {% else %}
+          <a href="{{ link.url }}" target="_blank">
+         {% endif %}
+      <i class="{{ link.icon.style }} fa-{{ link.icon.icon }}" style="color:{{ link.color_icon }};background:{{ link.color_bg }};"></i>
+       <span>{{ link.name }}</span>
+     </a>
+    {% endfor %}
+    </div>
+  </div>
+   </div>
+</div>
+    <script>
+    $(document).ready(function() {
+$(".g-scrolling-carousel .items").gScrollingCarousel();
+    });// end document
+    </script>
+{% endif %}
+<!-- end links -->
+<!-- start tables -->
+{% if blocks.blocktablecat.all %}
+<div class="card_price_table">
+ <span class="cardTitle {% if blocks.close == True  %}angl-down{% endif %}">{{ blocks.name }}</span>
+   <div class="infoBlock" {% if blocks.close == True  %}style="display: none;"{% endif %}>
+    {% for table in blocks.blocktablecat.all %}
+      <table class="table table-striped">
+        <p class="table_head">{{ table.category }}</p>
+          {% for item in table.tableitems.all %}
+         <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.price | intcomma }} руб</td>
+         </tr>
+          {% endfor %}
+      </table>
+    {% endfor %}
+
+        </div>
+    </div>
+{% endif %}
+<!-- end tables -->
+<!-- start faq -->
+{% if blocks.blockfaq.all %}
+ <div class="card_faq">
+  <span class="cardTitle {% if blocks.close == True  %}angl-down{% endif %}">{{ blocks.name }}</span>
+     <div class="infoBlock" {% if blocks.close == True  %}style="display: none;"{% endif %}>
+        {% for faq in blocks.blockfaq.all %}
+         <a href="#" class="togglefaq"><i class="icon-plus"></i>{{ faq.question }}</a>
+        <div class="faq_answer">{{ faq.answer }}</div>
+        {% endfor %}
+     </div>
+ </div>
+{% endif %}
+<!-- end faq -->
+<!-- start images -->
+{% if blocks.blockimages.all %}
+<div class="card_carousel">
+  <span class="cardTitle {% if blocks.close == True  %}angl-down{% endif %}">{{ blocks.name }}</span>
+     <div class="infoBlock" {% if blocks.close == True  %}style="display: none;"{% endif %}>
+        <span id="counterImg"></span>
+        <div class="owl-carousel owl-theme image-slide">
+       {% for img in blocks.blockimages.all %}
+          <div class="item">
+          <img src="{{ img.img.url }}" class="card_carousel_img">
+          </div>
+       {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endif %}
+<!-- end images -->
+<!-- start videos -->
+{% if blocks.blockvideos.all %}
+<div class="card_video">
+ <span class="cardTitle {% if blocks.close == True  %}angl-down{% endif %}">{{ blocks.name }}</span>
+     <div class="infoBlock" {% if blocks.close == True  %}style="display: none;"{% endif %}>
+        <span id="counterVideo"></span>
+        <div class="owl-carousel owl-theme video-slide">
+            {% for vid in blocks.blockvideos.all %}
+          <div class="item">
+          <div class="frame">
+              {% video vid.url '300x180' %}
+          </div>
+          </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endif %}
+<!-- end videos -->
+{% endfor %}
+<!-- END CREATE BLOCKS -->
+<!--<span><a href="#">Сделано на TapTap</a></span>-->
+</div>
+
+{% endblock%}

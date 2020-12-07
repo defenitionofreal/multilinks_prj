@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="main-menu">
+	{% include 'partials/_dashboard-header.html' %}
+    {% include 'partials/_dashboard-navigation.html' %}
+</div>
+{% include 'partials/_dashboard-fixed-navbar.html' %}
+<div id="wrapper">
+ <div class="main-content">
+  <div class="row small-spacing">
+   <div class="col-12">
+
+
+<div class="box-content">
+ <div class="col-md-6">
+  <form method="post" action=".">
+   {% csrf_token %}
+   {{ formcat|crispy }} {{ form.media }}
+   <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Добавить категорию</button>
+  </form>
+ </div>
+ <div class="col-md-6">
+  <form method="post" action=".">
+   {% csrf_token %}
+   {{ formitem|crispy }}
+   {{ formitem.media }}
+   <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Добавить объект</button>
+  </form>
+ </div>
+</div>
+
+
+
+<div class="box-content">
+{% if tablecat %}
+  {% for cat in tablecat %}
+      <table class="table table-striped">
+        <p class="table_head">{{ cat.category }}</p>
+          <li><a href="{% url 'change_cat' pk=cat.id %}?next={{ request.get_full_path|urlencode }}">Редактировать</a></li>
+ <li><a href="{% url 'del_cat' pk=cat.id %}?next={{ request.get_full_path|urlencode }}">Удалить</a></li>
+
+          {% for item in cat.tableitems.all %}
+         <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.price }} руб</td>
+           <td>
+ <li><a href="{% url 'change_item' pk=item.id %}?next={{ request.get_full_path|urlencode }}">Редактировать</a></li>
+ <li><a href="{% url 'del_item' pk=item.id %}?next={{ request.get_full_path|urlencode }}">Удалить</a></li>
+
+           </td>
+         </tr>
+          {% endfor %}
+      </table>
+    {% endfor %}
+{% else %}
+  <p>Вы еще не создали объектов для таблицы. Заполните формы выше.<br/>
+    Сначала создайте категорию для определенных объектов, затем добавьте сами объекты в созданную категорию и т.д.</p>
+{% endif %}
+</div>
+
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}
+

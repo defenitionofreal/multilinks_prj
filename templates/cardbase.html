@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% block title %} {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static "usercard/css/bootstrap.css" %}">
+	<link rel="stylesheet" href="{% static "usercard/css/style.css" %}">
+	<!-- OWL -->
+	<link rel="stylesheet" href="{% static "usercard/css/owl.carousel.css" %}">
+	<link rel="stylesheet" href="{% static "usercard/css/owl.theme.default.css" %}">
+	<link rel="stylesheet" href="{% static "usercard/css/jquery.gScrollingCarousel.css" %}">
+<script src="{% static "usercard/js/jquery-3.3.1.js" %}"></script>
+<link rel="shortcut icon" href="images/logos.png">
+
+<script src="https://kit.fontawesome.com/00edf05ecf.js" crossorigin="anonymous"></script>
+	</head>
+<body {% if bg %}{% for bg in bg %}style="background-color:{{ bg.color_bg }};"{% endfor %}{% else %}style="background-color:#159bd0;"{% endif %}>
+{% block content %}
+{% endblock %}
+<!-- scripts -->
+	<script src="{% static "usercard/js/owl.carousel.min.js" %}"></script>
+	<script src="{% static "usercard/js/jquery.gScrollingCarousel.js" %}"></script>
+		<script>
+
+$(document).ready(function() {
+
+
+// раскрытие блока
+    $('.angl-down').click(function(e) {
+        e.preventDefault();
+        $(this).next('.infoBlock').slideToggle(300);
+       // if($(this).hasClass("angl-down")){
+            $(this).toggleClass('angl-down angl-up');
+        //};
+    });
+
+//owl image-slide
+$(".image-slide").on("initialized.owl.carousel changed.owl.carousel",function(e){e.namespace&&$("#counterImg").text(e.relatedTarget.relative(e.item.index)+1+" из "+e.item.count)}).owlCarousel({loop:false,autoplay:false,autoplayTimeout:3e3,margin:10,dots:!1,nav:!0,center:!0,responsive:{0:{items:1},600:{items:1},1e3:{items:1}}});
+// owl video-slide
+$(".video-slide").on("initialized.owl.carousel changed.owl.carousel",function(e){e.namespace&&$("#counterVideo").text(e.relatedTarget.relative(e.item.index)+1+" из "+e.item.count)}).owlCarousel({loop:false,autoplay:false,autoplayTimeout:3e3,margin:10,dots:!1,nav:!0,center:!0,responsive:{0:{items:1},600:{items:1},1e3:{items:1}}});
+//faq toggle stuff
+$('.togglefaq').click(function(e) {
+e.preventDefault();
+var notthis = $('.active').not(this);
+notthis.find('.icon-minus').addClass('icon-plus').removeClass('icon-minus');
+notthis.toggleClass('active').next('.faq_answer').slideToggle(300);
+ $(this).toggleClass('active').next().slideToggle("fast");
+$(this).children('i').toggleClass('icon-plus icon-minus');
+});
+
+});// end document
+
+    </script>
+</body>
+</html>

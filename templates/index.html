@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django 3 мультиссылки</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static "usercard/css/bootstrap.css" %}">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://vk.com/realea" target="_blank">made by Erik</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+       <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'dashboard' %}">Панель управления</a></li>
+          <li><a href="{% url 'logout' %}">Выход</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Авторизация</a></li>
+          <li><a href="{% url 'register' %}">Регистрация</a></li>
+          {% endif %}
+      </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+  <div class="container">
+      <div class="col-12">
+      <div class="row">
+          <div class="page-header">
+          <h1>мультиссылки на Django 3.0</h1>
+              <p>
+                  Код проекта на <a href="https://github.com/defenitionofreal/multilinks_prj/tree/main/smarturlprj" target="_blank">GitHub</a>
+
+              </p>
+          </div>
+
+          <div class="panel panel-info">
+           <div class="panel-heading">Регистрация</div>
+           <div class="panel-body">
+               <p>
+                   При регистрации пользователю даётся выбор из классической регистрации через сервис или через социальную сеть.<br>
+               </p>
+               <p>
+                   При классической регистрации пользователь обязан ввести свой username только в маленьком регистре и латинскими буквами иначе вылезет ошибка
+                   ( это сделано для того, чтобы после успешной регистрации дать новому пользователю уникальную страницу, которую можно найти по его username в url ).
+               </p>
+               <p>
+                   При классической регистрации на почту будет высланно письмо с подтверждением указанной раннее почты.
+               </p>
+           </div>
+          </div>
+
+          <div class="panel panel-info">
+            <div class="panel-heading">Авторизация</div>
+            <div class="panel-body">
+               <p>
+                Нужно только корректно ввести свой логин и пароль. Если пользователь забыл пароль, то он сможет сгенерировать новый, перейдя по ссылке 'Забыли пароль?'.
+                </p>
+                <p>
+                    Опять же, существует вход через социальную сеть для упращения процесса.
+                </p>
+            </div>
+          </div>
+
+          <div class="panel panel-info">
+            <div class="panel-heading">Панель управления / Создание карточки</div>
+            <div class="panel-body">
+               <p>
+                 Пользователь имеет возможность создать свою карточку и добавить:
+                </p>
+                   <ul>
+                <li>Аватарку</li>
+                <li>Заголовок</li>
+                <li>Описание</li>
+                <li>Большую кнопку прямого звонка</li>
+                <li>Слайдер быстрых ссылок на соцсети, мессенджеры, почту и другое</li>
+                <li>Галерею видео с youtube</li>
+                <li>Галерею картинок</li>
+                <li>Таблицу цен с наименованиями и категориями</li>
+                <li>Частые вопросы и ответы на них</li>
+                <li>Изменить задний фон своей страницы</li>
+            </ul>
+         <p>Принцип такой, что нужно создать блок, а затем уже выбрать какой модуль будет находиться в блоке.</p>
+                <p>Все модули и блоки можно назвать как хочется, менять их местами в очереди и при желании всё редактируется (цвета, иконки, названия, порядок и т.д.).</p>
+                <p>Основная мысль и идея блоков в том, что их можно свернуть для экономии места. Для этого в панеле управления при создании блока можно выбрать опцию 'Свернуть'.</p>
+                <p>Пример карточки <a href="{{ host }}/erik" target="_blank">по ссылке</a></p>
+            </div>
+          </div>
+
+          <p>
+              P.S.: Проект планирую развивать и модернизировать.
+          </p>
+
+      </div>
+  </div>
+  </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<div class="content">
+<div class="navigation">
+			<ul class="menu js__accordion">
+				<li class="current active">
+					<a class="waves-effect" href="{% url 'dashboard' %}"><i class="menu-icon mdi mdi-settings"></i><span>Конструктор</span></a>
+				</li>
+
+                 <li>
+					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-checkbox-multiple-blank-outline"></i><span>Мои блоки</span><span class="menu-arrow fa fa-angle-down"></span></a>
+					<ul class="sub-menu js__content">
+						{% if blocks %}
+						{% for block in blocks %}
+						<li><a href="{% url 'change_block' pk=block.id %}">{{ block.name }}</a></li>
+						{% endfor %}
+						{% else %}
+						<li><a href="{% url 'add_block' %}">Добавить блок</a></li>
+						{% endif %}
+					</ul>
+					<!-- /.sub-menu js__content -->
+				</li>
+				<li>
+					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-grid"></i><span>Мои модули</span><span class="menu-arrow fa fa-angle-down"></span></a>
+					<ul class="sub-menu js__content">
+						{% for block in blocks %}
+						{% if block.blockfaq.all %}
+						<li><a href="{% url 'add_faq' pk=block.id %}">Модуль 'Вопрос-ответ'</a></li>
+						{% elif block.blocktablecat.all %}
+						<li><a href="{% url 'add_table' pk=block.id %}">Модуль 'Таблица'</a></li>
+						{% elif block.blocklinks.all %}
+						<li><a href="{% url 'add_link' pk=block.id %}">Модуль 'Ссылки'</a></li>
+						{% elif block.blockimages.all %}
+						<li><a href="{% url 'add_image' pk=block.id %}">Модуль 'Изображения'</a></li>
+						{% elif block.blockvideos.all %}
+						<li><a href="{% url 'add_video' pk=block.id %}">Модуль 'Видео'</a></li>
+						{% else %}
+						<li>У вас пока нету модулей.</li>
+						{% endif %}
+                        {% endfor %}
+					</ul>
+					<!-- /.sub-menu js__content -->
+				</li>
+				<li>
+					<a class="waves-effect" href="{% url 'profile'%}"><i class="menu-icon mdi mdi-account-card-details"></i><span>Профиль</span></a>
+				</li>
+                 {% if not bg %}
+				<li>
+					<a class="waves-effect" href="{% url 'bg_create' pk=user.id %}">
+						<i class="menu-icon mdi mdi-format-paint"></i>
+						<span>Цвет фона</span>
+					</a>
+				</li>
+                 {% else %}
+				<li>
+					<a class="waves-effect" href="{% url 'bg_edit' pk=user.id %}">
+						<i class="menu-icon mdi mdi-format-paint"></i>
+						<span>Цвет фона</span>
+					</a>
+				</li>
+				{% endif %}
+				<!--
+				<li>
+					<a class="waves-effect" href="inbox.html"><i class="menu-icon mdi mdi-copyright"></i><span>Убрать копирайт</span></a>
+				</li>
+				<li>
+					<a class="waves-effect" href="inbox.html"><i class="menu-icon mdi mdi-chart-bar"></i><span>Статистика</span></a>
+				</li>
+				-->
+			</ul>
+			<!-- /.menu js__accordion -->
+		</div>
+		<!-- /.navigation -->
+</div>

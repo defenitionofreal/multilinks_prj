@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html, body {
+padding: 0;
+margin: 0;
+font-family: 'Roboto', sans-serif;
+width: 100%;
+height: 100%;
+overflow-x: hidden;
+background-color: #159bd0;
+/*background-image: radial-gradient(rgba(256,256,256,0.3) 2px, transparent 2px);
+background-size: 20px 20px;
+*/
+}
+/*.blur{
+width: 100%;
+height: 220px;
+background: url(../img/me.jpg) top center;
+position: fixed;
+transform: scale(1.2);
+filter: blur(5px);
+}
+*/
+.card{
+    position: relative;
+    max-width: 355px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    margin: 50px auto;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    z-index: 1;
+}
+.card_img {
+    text-align: center;
+    height: 120px;
+    width: 120px;
+    margin: -55px auto 20px;
+}
+.card_img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background: #fff;
+    border: 5px solid #fff;
+    box-shadow: 0 7px 26px 1px rgba(0,0,0,.13);
+    margin-bottom: 10px;
+}
+.card_name{
+    position: relative;
+}
+.card_name h1{
+    text-align: center;
+    font-weight: 600;
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #000;
+    word-wrap: break-word;
+}
+.card_desc{
+display: block;
+    width: 250px;
+    margin: 20px auto;
+    text-align: center;
+    color: #797979;
+    margin-bottom: 20px;
+    position: relative;
+    font-size: 14px;
+    word-wrap: break-word;
+    line-height: 150%;
+}
+.card_button{
+    position: relative;
+}
+.card_button a{
+    color: #fff;
+    background-color: #159bd0;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    max-width: 230px;
+    margin-bottom: 10px;
+    margin: 0 auto 10px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.2)!important;
+}
+.card_links{
+    text-align: center;
+    padding: 10px 0 0;
+    position: relative;
+}
+.card_links a {
+    width: 60px;
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.card_links a i{
+    font-size: 42px;
+    padding: 7px 0px 0px 1px;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 7px 26px 1px rgba(0,0,0,.13);
+}
+.card_links a span{
+    display: block;
+    font-size: 10px;
+    color: #797979;
+    text-transform: capitalize;
+}
+.table_head{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.self_links a {
+    width: 67px;
+    display: inline-block;
+    margin: 0 3px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.self_links a i{
+    font-size: 40px;
+    padding: 12px 0px 0px 1px;
+    width: 67px;
+    height: 67px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 100%;
+}
+.self_links a span{
+    display: block;
+    font-size: 10px;
+    color: #797979;
+    text-align: center;
+    text-transform: capitalize;
+}
+.card span a{
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #797979;
+}
+
+.cardTitle{
+    text-align: left;
+    color: #797979;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+}
+
+.card_carousel_img {
+    border-radius: 3px;
+}
+.image-slide .owl-nav {
+    color: #333;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+.image-slide .owl-nav svg {
+    color: currentColor;
+}
+.image-slide .owl-nav .disabled {
+    display: none;
+}
+.image-slide .owl-prev,
+.image-slide .owl-next {
+top: 40%;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    position: absolute;
+    border-radius: 50% !important;
+    background-color: #fff !important;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .3), 0 0 4px rgba(0, 0, 0, .2);
+}
+.image-slide .owl-prev,
+.image-slide .owl-next:focus{outline: 0;}
+.image-slide .owl-prev,
+.image-slide .owl-next:hover {color: #333 !important;}
+.image-slide .owl-prev {
+    left: 10px
+}
+.image-slide .owl-next {
+    right: 10px  }
+/*video slide*/
+.video-slide .owl-nav {
+    color: #333;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+.video-slide .owl-nav svg {
+    color: currentColor;
+}
+.video-slide .owl-nav .disabled {
+    display: none;
+}
+.video-slide .owl-prev,
+.video-slide .owl-next {
+top: 40%;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    position: absolute;
+    border-radius: 50% !important;
+    background-color: #fff !important;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .3), 0 0 4px rgba(0, 0, 0, .2);
+}
+.video-slide .owl-prev,
+.video-slide .owl-next:focus{outline: 0;}
+.video-slide .owl-prev,
+.video-slide .owl-next:hover {color: #333 !important;}
+.video-slide .owl-prev {
+    left: 10px
+}
+.video-slide .owl-next {
+    right: 10px  }
+/**/
+ .owl-carousel .owl-stage-outer {
+    padding: 20px 0px 20px 0px;
+} 
+#counterImg, #counterVideo{
+display: block;
+    margin: 0px auto;
+    text-align: center;
+    color: #000;
+    font-size: 17px;
+    opacity: 0.5;}  
+
+
+/* FAQ Toggle*/
+.faq_answer {
+	display: none;
+    background: #f9f9f9;
+	padding: 12px 20px;
+}
+
+.active {
+	font-weight: bold;
+}
+
+.togglefaq {
+text-decoration: none;
+    color: #333;
+    padding: 10px 30px;
+    display: block;
+    border: 1px solid #d0d0d0;
+    margin-bottom: -1px;
+}
+
+.icon-plus, .icon-minus:before{
+width: 20px;
+    height: 20px;    
+font-family: FontAwesome;
+  margin-right: 10px;
+  float: left;
+  font-size: 12px;
+}
+.icon-minus:before{
+    content: "\f068";
+}
+.icon-plus:before{
+    content: "\f067";
+}
+/*.icon-plus {
+    margin-right: 20px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url(../img/plus_icon.svg);
+    background-size: cover;
+}
+
+.icon-minus {
+margin-right: 20px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url(../img/minus_icon.svg);
+    background-size: cover;
+}*/
+
+.angl-down:before{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 17px;
+    margin-right: 10px;
+    float: right;
+    content: "\f107";
+}
+.angl-up:before{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 17px;
+    margin-right: 10px;
+    float: right;
+    content: "\f106";
+}
+
+.frame{
+    width: 300px;
+    margin: 0 auto;
+}
+.frame iframe{
+    border-radius: 3px;
+}
+/*logos*/
+.phone{
+    background: #00d40e;
+}
+.google-plus{
+ background: #db5a3c;
+}
+.google-play{
+    background: #0097c4;
+}
+.amazon{
+    background: #0034b8;
+}
+.apple{
+    background:#000;
+    
+}
+.bandcamp{
+    background: #477987;
+}
+.lastfm{
+    background: #b90000;
+}
+.spotify{
+    background: #7ab800;
+}
+.tumblr{
+    background:#35465c;
+}
+.twitch{
+    background: #6441a5;
+}
+.vimeo{
+    background: #00ADEF;
+}
+.dribble{
+    background: #ea4c89;
+}
+.snapchat{
+    background: #fffc00;
+}
+.soundcloud{
+    background: #FE4B00;
+}
+.behance{
+    background:#0057ff ;
+}
+.pinterest{
+    background-color:#CC2127;
+}
+.github{
+    background-color:#070709;
+}
+.linkedin{
+    background-color:#0085AE;
+}
+.twitter{
+    background-color:#32CCFE;
+}
+.skype{
+   background:#12A5F4;
+}
+.youtube, .youtubemusic{
+    background-color:red;
+}
+.site{
+    background:#ffae00 ;
+}
+.fb-messenger{
+    background: #007ee5;
+}
+.mail{
+    background:#005FF5 ;
+}
+.odnoklassniki{
+    background: #F2720C;
+}
+.whatsapp{
+    background: limegreen;
+}
+.instagram{
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+.facebook{
+    background: #3B5998;
+}
+.telegram{
+    background: #0088CC;
+    /*background: linear-gradient(120deg,#0088CC,#FFF);*/
+}
+.viber{
+	background: #7C529E;
+}
+.vk{
+    background: #4a76a8;
+}

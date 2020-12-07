@@ -1,0 +1,161 @@
+
+<!-- Modals -->
+<!-- Add Block Modal -->
+<div class="modal fade" id="addTask" tabindex="-1" role="dialog" aria-labelledby="addTaskLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="addTaskLabel">Добавить новый блок</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<form method="post">
+
+								<div class="modal-footer">
+				<button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Закрыть</button>
+				<button type="submit" class="btn btn-primary waves-effect waves-light">Добавить</button>
+			</div>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Change Block Modal -->
+<div class="modal fade" id="changeblock" tabindex="-1" role="dialog" aria-labelledby="addTaskLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="addTaskLabel">Редактировать блок</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<form method="post">
+								{% csrf_token %}
+								{{ changeblockform }}
+								<div class="modal-footer">
+				<button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Закрыть</button>
+				<button type="submit" class="btn btn-primary waves-effect waves-light">Изменить</button>
+			</div>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Choose Module Modal -->
+<div class="modal fade" id="{{ block.name }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+                <div class="row add-block">
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="1">
+                            <i class="fa fa-link"></i>
+                            <span>Ссылка</span>
+                        </a>
+                    </div>
+                   <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="0" data-toggle="modal" data-target="#Content" data-dismiss="modal">
+                            <i class="fa fa-table"></i>
+                            <span>Таблица</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+						{% for block in blocks %}
+                        <a href="{% url 'add_faq' pk=block.id %}" data-block-type="0">
+							{% endfor %}
+                            <i class="fa fa-question-circle-o"></i>
+                            <span>Вопрос-ответ</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="0">
+                            <i class="fa fa-file-text-o"></i>
+                            <span>Текст</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="2">
+                            <i class="fa fa-picture-o"></i>
+                            <span>Фото\галерея</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="3">
+                            <i class="fa fa-envelope"></i>
+                            <span>Форма обратной связи</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="4">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Аналитика</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="7">
+                            <i class="fa fa-video-camera"></i>
+                            <span>Видео</span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <a href="#" data-block-type="9">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Карта</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-sm waves-effect waves-light" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary btn-sm waves-effect waves-light">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Add Module Content Modal -->
+<div class="modal fade" id="Content" tabindex="-1" role="dialog" aria-labelledby="addTaskLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="addTaskLabel">Добавить новый блок</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group"><label for="taskName">Название</label><input type="text" id="taskName" class="form-control"></div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary waves-effect waves-light">Add New</button>
+			</div>
+		</div>
+	</div>
+</div>

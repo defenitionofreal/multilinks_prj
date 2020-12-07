@@ -1,0 +1,117 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Django 3 - мудьтиссылки</title>
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="{% static "dashboard/assets/styles/style.min.css" %}">
+
+	<!-- Material Design Icon -->
+	<link rel="stylesheet" href="{% static "dashboard/assets/fonts/material-design/css/materialdesignicons.css" %}">
+
+	<!-- mCustomScrollbar -->
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css" %}">
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/waves/waves.min.css" %}">
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/lightview/css/lightview/lightview.css" %}">
+
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/sweet-alert/sweetalert.css" %}">
+
+	<!-- Jquery UI -->
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/jquery-ui/jquery-ui.min.css" %}">
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/jquery-ui/jquery-ui.structure.min.css" %}">
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/jquery-ui/jquery-ui.theme.min.css" %}">
+
+	<link rel="stylesheet" href="{% static "dashboard/assets/plugin/toastr/toastr.css" %}">
+	<script src="{% static "dashboard/assets/scripts/jquery.min.js" %}"></script>
+</head>
+
+<body>
+<style>
+.row.add-block {
+    padding: 10px 20px;
+}
+.add-block .col-6.col-md-3.text-center {
+    padding: 30px 20px;
+    border: 1px solid #eee;
+}
+.add-block .col-6.col-md-3.text-center span{
+color: #333;
+}
+.add-block i.fa {
+    display: block;
+    font-size: 35px;
+    padding: 0 0 20px 0;
+}
+    .btn.btn-circle{
+        display: block;
+        margin: 0 auto;
+    }
+    .addblock{
+        width: 350px;
+        margin: 0 auto;
+        display: block;
+    }
+    .box-content.info {
+    border-color: #00aeff;
+    max-width: 350px;
+    margin: 10px auto;
+    display: block;
+}
+form .alert ul li{
+list-style:none;
+}
+
+.module{
+border: 1px solid #3333;
+background: rgba(148, 255, 143, 1);
+padding: 3px;
+text-align: center;
+display: block;
+margin-top: 5px;
+}
+
+.checkbox input[type=checkbox]{display:block !important;}
+.checkbox label:before{display:none;}
+
+.select2-search--dropdown{display:none !important;}
+.select2-container .select2-selection--single{height:45px !important;}
+</style>
+{% block content %}
+{% endblock %}
+<script src="{% static "dashboard/assets/plugin/toastr/toastr.min.js" %}"></script>
+ {% include 'partials/_alerts.html' %}
+	<script src="{% static "dashboard/assets/scripts/modernizr.min.js" %}"></script>
+	<script src="{% static "dashboard/assets/plugin/bootstrap/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "dashboard/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js" %}"></script>
+	<script src="{% static "dashboard/assets/plugin/nprogress/nprogress.js" %}"></script>
+	<script src="{% static "dashboard/assets/plugin/sweet-alert/sweetalert.min.js" %}"></script>
+	<script src="{% static "dashboard/assets/plugin/waves/waves.min.js" %}"></script>
+	<!-- Full Screen Plugin -->
+	<script src="{% static "dashboard/assets/plugin/fullscreen/jquery.fullscreen-min.js" %}"></script>
+	<!-- Jquery UI -->
+	<script src="{% static "dashboard/assets/plugin/jquery-ui/jquery-ui.min.js" %}"></script>
+	<script src="{% static "dashboard/assets/plugin/jquery-ui/jquery.ui.touch-punch.min.js" %}"></script>
+    <script src="{% static "dashboard/assets/plugin/lightview/js/lightview/lightview.js" %}"></script>
+	<script src="{% static "dashboard/assets/scripts/main.min.js" %}"></script>
+	<script src="{% static "dashboard/assets/color-switcher/color-switcher.min.js" %}"></script>
+	<script>
+	$(document).ready(function() {
+    $( ":checkbox" ).each(function( index ) {
+        $(this).prependTo($("#div_" + $(this).attr('id')))
+    });
+});
+	<script>
+
+</body>
+</html>
