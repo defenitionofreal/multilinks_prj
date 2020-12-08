@@ -1,1 +1,1 @@
-web: gunicorn smarturlprj.wsgi
+web: gunicorn smarturlprj.wsgi --log-file -
