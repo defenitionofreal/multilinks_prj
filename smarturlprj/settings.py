@@ -100,11 +100,11 @@ WSGI_APPLICATION = 'smarturlprj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8ancqvv7evftm',
-        'HOST': 'ec2-35-172-246-19.compute-1.amazonaws.com',
+        'NAME': 'dcdhtapfcml74q',
+        'HOST': 'ec2-54-246-67-245.eu-west-1.compute.amazonaws.com',
         'POST': 5432,
-        'USER': 'suyqzxkjsfjopb',
-        'PASSWORD': 'ef7477d384c8ebe34cfa890bbc232e65b8fa0a4238f15d31bece8de696983e28',
+        'USER': 'wcuxsegozaepim',
+        'PASSWORD': 'ad78c914819096586d4eebf9f922dcdaa3a6292148718ea41f76b7400d8b3c5f',
     }
 }
 # Password validation
