@@ -43,3 +43,4 @@ Example of a card 'django-links.herokuapp.com/erik'
 One tiny nuance, the heroku server deletes media files that the user uploads himself, so when you watch the 'sample user card' or create your own, your avatar will disappear after a while. To avoid this, I need to connect a separate storage for media files and spend money on it, so I don't see any sense in this yet.
 
 Check this video to see the whole process of using this web app - https://youtu.be/cAAFygMsDaM
+And yeah, it's on Russian but fortunately chrome can translate any web page if you want to. I wanted to add functionality of choosing english language but i had enough of it )))
