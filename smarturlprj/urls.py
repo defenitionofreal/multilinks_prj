@@ -14,7 +14,9 @@ urlpatterns = [
     path('', include('cardapp.urls', namespace='usercard')),
     path('', include('social_django.urls', namespace='social')),
     #path('chaining/', include('smart_selects.urls')),
-
+    # testing api's
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include('cardapp.urls'))
 ]
 
 if settings.DEBUG:

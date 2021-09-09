@@ -13,7 +13,7 @@ SECRET_KEY = '+hm_dpos_^_@25*4wjqz5)v)adzn6i91c=@tzjgn&$s1nbr^3m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-links.herokuapp.com', 'mysite.com', '127.0.0.1', 'localhost', '0.0.0.0']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     #local
     'django.contrib.humanize',
     'cardapp',
+    # api
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -147,8 +149,8 @@ USE_TZ = True
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static/') # for deploy ?
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -199,6 +201,15 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_VK_OAUTH2_KEY = '7628028'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'k6oNkK8MccTcmyIfvLRD'
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'photos']
+
+# api
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 X_FRAME_OPTIONS = 'ALLOWALL'
 XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']

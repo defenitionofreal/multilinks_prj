@@ -4,6 +4,10 @@ from .models import *
 from accounts.models import CustomUser
 from smarturlprj.settings import ALLOWED_HOSTS
 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import BlockSerializer
+
 # Create your views here.
 def index(request):
     if ALLOWED_HOSTS:
@@ -42,4 +46,13 @@ def create_links(request, username):
                }
 
     return render(request, 'card.html', context)
+
+
+# api's
+
+class BlockView(APIView):
+    def get(self, request):
+        blocks = CreateBlock.objects.all()
+        serializer = BlockSerializer(blocks, many=True) # many-true для нескольких записей
+        return Response(serializer.data)
 

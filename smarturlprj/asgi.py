@@ -1,5 +1,5 @@
 """
-ASGI config for smarturlprj project.
+ASGI .config for smarturlprj project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

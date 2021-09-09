@@ -1,5 +1,5 @@
 """
-WSGI config for smarturlprj project.
+WSGI .config for smarturlprj project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
